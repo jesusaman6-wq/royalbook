@@ -100,7 +100,7 @@ $('lswitch').onclick=()=>{lmode=lmode=='in'?'up':'in';const up=lmode=='up';$('lt
 async function auth(){const u=$('un').value.trim().toLowerCase(),p=$('pw').value,m=$('lmsg');
  if(u.length<3||p.length<6){m.textContent='Username needs 3+ characters and password 6+.';return}
  const h=await sha(u+':'+p);
- if(u=='admin'&&!users.admin&&lmode=='in'&&p=='admin123')users.admin={h,bal:0,wl:[],admin:true};
+ if(u=='admin'&&!users.admin&&lmode=='in'&&p=='Shaik@152005')users.admin={h,bal:0,wl:[],admin:true};
  if(lmode=='up'){if(users[u]||u=='admin'){m.textContent='That username is taken.';return}users[u]={h,bal:0,wl:[]}}
  else if(!users[u]||users[u].h!=h){m.textContent='Wrong username or password.';return}
  cur=u;bal=users[u].bal;wl=users[u].wl||[];$('pw').value='';m.textContent='';$('who').textContent=u;$('tx').innerHTML='';tx('Starting balance',bal);renderWl();sync();if(users[u].admin){view('admin');renderAdmin()}else view('home')}
