@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07101d">
+<meta name="description" content="Royalbook Win Exchange demo — virtual coins only.">
+<title>Royalbook — Win Exchange</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css"></head><body>
+<header id="hdr" hidden>
+ <div class="brand"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-copy"><strong>ROYALBOOK</strong><small>Win Exchange · virtual coins only</small></span></div>
+ <div class="wallet"><span>Wallet</span><span class="bal" id="bal">0</span>
+ <button id="topup" class="pri">Deposit</button><button id="cash">Withdraw</button><button id="homeBtn">Home</button><button id="logout">Log out</button></div>
+</header>
+<section id="login" class="card auth">
+ <div class="brand"><img class="brand-mark" src="logo.svg" alt=""><span class="brand-copy"><strong>ROYALBOOK</strong><small>Win Exchange · virtual coins only</small></span></div>
+ <h2 id="ltitle">Log in</h2>
+ <input id="un" placeholder="Username" autocomplete="username">
+ <input id="pw" type="password" placeholder="Password" autocomplete="current-password">
+ <div class="err" id="lmsg"></div>
+ <button class="pri" id="lgo">Log in</button>
+ <button id="lswitch">New here? Create an account</button>
+ <p class="note">Demo accounts are saved in this browser only. Virtual coins, no real money.</p>
+</section>
+<main id="cards" hidden>
+ <div class="strip" id="cstrip"></div>
+ <section class="stage">
+  <div class="timer"><span class="phase" id="cphase">Place your bets</span><span class="num" id="ctime">15</span></div>
+  <div class="deal"><div class="pc back" id="cdeck"></div><div class="pc back" id="ccard"></div></div>
+  <div class="msg" id="cmsg">Choose a chip, then tap a bet or a card.</div>
+ </section>
+ <section class="card tbl">
+  <div class="chips" id="cchips"></div>
+  <p class="note" id="cstaked"></p>
+  <div id="cboard"></div>
+  <p style="text-align:center"><button id="cclear">Clear bets</button></p>
+ </section>
+ <details class="card"><summary>Rules &amp; payouts</summary><div id="crules"></div></details>
+ <section class="card"><h2>Recent rounds</h2><div class="scroll"><table><thead><tr><th>Round</th><th>Card</th><th>Net</th></tr></thead><tbody id="chist"></tbody></table></div></section>
+ <p class="note">Demo build: the card comes from the browser's crypto RNG. The server will draw and record every round.</p>
+</main>
+<main id="cricket" hidden>
+ <section class="stage"><h2>Cricket</h2><p class="note">Scores are a snapshot from 16 Nov 2026, updated by the admin. Automatic updates come with the backend.</p></section>
+ <div id="crlist"></div>
+</main>
+<main id="admin" hidden>
+ <section class="stage"><h2>Admin panel</h2><button id="alogout">Log out</button></section>
+ <section class="card"><h2>Deposit &amp; withdrawal requests</h2><div class="scroll" style="max-height:60vh"><table><thead><tr><th>User</th><th>Type</th><th>Amount</th><th>UTR / slip</th><th>Ref</th><th>Status</th><th>Action</th></tr></thead><tbody id="areq"></tbody></table></div></section>
+ <section class="card"><h2>Cricket matches</h2><div class="chips"><input id="cn1" placeholder="Tournament"><input id="cn2" placeholder="Home team"><input id="cn3" placeholder="Away team"><input id="cn4" placeholder="Start, e.g. Tue 17 Nov, 7:30 PM"><button class="pri" id="cadd">Add match</button></div><div class="err" id="cerr"></div><div class="scroll" style="max-height:60vh"><table><thead><tr><th>Match</th><th>Status</th><th>Score</th><th>Result</th><th></th></tr></thead><tbody id="acr"></tbody></table></div></section>
+ <section class="card"><h2>Game statistics</h2><div id="astats"></div></section>
+ <section class="card"><h2>Bet limits</h2><div class="chips"><label>Min <input id="lmin" type="number"></label><label>Max per bet <input id="lmax" type="number"></label><label>Max on triples <input id="ltri" type="number"></label><button class="pri" id="lsave">Save limits</button></div><div class="err" id="lerr"></div><p class="note">Limits apply to every tile. Triples and Any Triple use their own, lower maximum.</p></section>
+ <section class="card"><h2>Users</h2><div class="scroll"><table><thead><tr><th>Username</th><th>Balance</th></tr></thead><tbody id="ausers"></tbody></table></div></section>
+</main>
+<main id="home" hidden>
+ <section class="stage"><div class="phase">Welcome, <b id="who"></b></div><div class="big-bal" id="hbal">0</div><div class="phase">virtual coins</div>
+  <p><button class="pri" id="hdep">Deposit</button> <button id="hwd">Withdraw</button></p></section>
+ <section class="tiles">
+  <div class="tile"><h2>Sic Bo</h2><span class="phase">Three dice, live rounds every 25 seconds.</span><button class="pri" id="play">Play Sic Bo</button></div>
+  <div class="tile"><h2>32 Cards</h2><span class="phase">One card is dealt each round. Bet on colour, suit or the exact card.</span><button class="pri" id="cplay">Play 32 Cards</button></div>
+  <div class="tile"><h2>Cricket</h2><span class="phase">Live scores, fixtures and results.</span><button class="pri" id="crplay">View matches</button></div>
+ </section>
+ <section class="card"><h2>Deposits &amp; withdrawals</h2><div class="scroll"><table><thead><tr><th>Type</th><th>Amount</th><th>ID</th><th>Status</th></tr></thead><tbody id="wl"></tbody></table></div></section>
+</main>
+<main id="game" hidden>
+ <div class="strip" id="strip"></div>
+ <section class="stage">
+  <div class="timer"><span class="phase" id="phase">Place your bets</span><span class="num" id="time">15</span></div>
+  <div class='scene' id='scene'><svg viewBox='0 0 400 230' role='img' aria-label='Animated dealer shaking three dice under a glass dome'>
+<rect width='400' height='230' fill='#4a0b17'/><path d='M0 0h80c-24 60-24 120 0 230H0z' fill='#8c1c2c'/><path d='M400 0h-80c24 60 24 120 0 230h80z' fill='#8c1c2c'/>
+<circle cx='200' cy='84' r='66' fill='none' stroke='#c9a24b' stroke-opacity='.35' stroke-width='3'/>
+<g class='dealerg'><path d='M158 72c0-42 84-42 84 0v74h-84z' fill='#17101a'/><path d='M120 232c0-52 30-86 80-86s80 34 80 86z' fill='#c8102e'/><path d='M178 148l22 24 22-24' fill='none' stroke='#e6c15a' stroke-width='4'/><rect x='190' y='118' width='20' height='34' fill='#efc4a0'/><ellipse cx='200' cy='92' rx='30' ry='36' fill='#f3cfae'/><path d='M168 90c4-32 60-32 64 0c-14-16-50-16-64 0z' fill='#17101a'/><circle cx='189' cy='98' r='2.6' fill='#2a1a1a'/><circle cx='211' cy='98' r='2.6' fill='#2a1a1a'/><path d='M183 91q6-3 12 0M205 91q6-3 12 0' stroke='#2a1a1a' stroke-width='1.6' fill='none'/><path d='M191 113q9 7 18 0q-9 3-18 0z' fill='#b3122f'/><circle cx='169' cy='104' r='3' fill='#e6c15a'/><circle cx='231' cy='104' r='3' fill='#e6c15a'/></g>
+<rect y='172' width='400' height='60' fill='#6b0f1f'/><rect y='168' width='400' height='6' fill='#d8b04a'/>
+<g class='domeg'><ellipse cx='200' cy='198' rx='72' ry='14' fill='#c8102e' stroke='#d8b04a' stroke-width='4'/>
+<g transform='translate(168 172)'><g class='sd' style='animation-delay:0s'><rect width='20' height='20' rx='4' fill='#d7263d'/><g class='pp'></g></g></g>
+<g transform='translate(190 178)'><g class='sd' style='animation-delay:-.2s'><rect width='20' height='20' rx='4' fill='#d7263d'/><g class='pp'></g></g></g>
+<g transform='translate(212 171)'><g class='sd' style='animation-delay:-.4s'><rect width='20' height='20' rx='4' fill='#d7263d'/><g class='pp'></g></g></g>
+<path d='M148 196V152c0-32 104-32 104 0v44z' fill='#fff' fill-opacity='.14' stroke='#e8f0ff' stroke-opacity='.65' stroke-width='2'/><circle cx='200' cy='126' r='5' fill='#d8b04a'/></g></svg></div>
+<p class='note'>Animated dealer for the demo. A live build can stream real dealer video instead.</p>
+<div class="dice" id="dice"></div>
+  <div class="total" id="total">Total —</div>
+  <div class="jackpot" id="jp">TRIPLE WIN!</div>
+  <div class="msg" id="msg">Choose a chip, then tap a bet.</div>
+ </section>
+
+ <section class="card tbl">
+  <div class="chips" id="chips"></div>
+  <p class="note" id="staked">Staked this round: 0</p>
+  <div class="board" id="board"></div>
+  <p style="text-align:center"><button id="clear">Clear bets</button></p>
+ </section>
+
+ <details class="card" id="rules"><summary>Rules &amp; payouts</summary><div id="rulesBody"></div></details>
+
+ <div class="cols">
+  <section class="card"><h2>Recent rounds</h2><div class="scroll"><table><thead><tr><th>Round</th><th>Dice</th><th>Total</th><th>Net</th></tr></thead><tbody id="hist"></tbody></table></div></section>
+  <section class="card"><h2>Transactions</h2><div class="scroll"><table><thead><tr><th>Type</th><th>Amount</th><th>Balance</th></tr></thead><tbody id="tx"></tbody></table></div></section>
+ </div>
+ <p class="note">Demo build: results here come from the browser’s crypto RNG. The Express server will generate and record every round, with no logic based on bets or balances.</p>
+</main>
+<div id="modal" hidden></div>
+<div id="cele" aria-live="polite"></div>
+<script src="app.js" defer></script></body></html>

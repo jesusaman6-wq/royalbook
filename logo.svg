@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Royalbook</title>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe7a0"/>
+      <stop offset="1" stop-color="#c88e35"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="19" fill="#101d2c" stroke="#8d713f" stroke-width="2"/>
+  <path d="M13 21l10 8 9-14 9 14 10-8-4 20H17z" fill="url(#gold)" stroke="#fff0c2" stroke-linejoin="round" stroke-width="1.5"/>
+  <circle cx="13" cy="19" r="3" fill="#ffe7a0"/>
+  <circle cx="32" cy="12" r="3" fill="#ffe7a0"/>
+  <circle cx="51" cy="19" r="3" fill="#ffe7a0"/>
+  <path d="M21 45h22M23 50h18" stroke="#e9bd62" stroke-linecap="round" stroke-width="2.5"/>
+</svg>
